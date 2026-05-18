@@ -1,0 +1,31 @@
+# What Is Fiber
+
+> A plain-English-and-also-deeply-technical educational site explaining how fiber-optic internet actually works — and how it compares to cable, DSL, Starlink / satellite, and 5G home internet. Every page has both a reader mode (consumer) and an engineer mode (specs, protocols, sources). Original work, citable, dual-mode by design.
+
+## Core explainers
+
+- [How Fiber Internet Works](https://whatisfiber.com/how-fiber-works): Light, glass, total internal reflection, GPON / XGS-PON trees, ONT termination. Full physical-layer walkthrough.
+- [Inside Your Home](https://whatisfiber.com/inside-your-home): The ONT vs a modem, drop cable specs, SC/APC connectors, why your Wi-Fi is slow even when fiber is fast.
+- [The Internet Backbone](https://whatisfiber.com/the-internet-backbone): BGP, autonomous systems, IXPs, transit vs peering vs PNI, DWDM long-haul, submarine cables.
+
+## Comparisons
+
+- [Fiber vs Cable](https://whatisfiber.com/fiber-vs-cable): XGS-PON vs DOCSIS 3.1 / 4.0. Upload symmetry, bufferbloat, node sharing, data caps, real pricing.
+- [Fiber vs DSL](https://whatisfiber.com/fiber-vs-dsl): Why copper caps at ~100 Mbps. ADSL2+ / VDSL2 / G.fast. AT&T copper retirement by 2029.
+- [Fiber vs Satellite](https://whatisfiber.com/fiber-vs-satellite): Starlink (LEO) vs HughesNet / Viasat (GEO). Orbital altitude, phased-array dishes, capacity-per-cell math.
+- [Fiber vs 5G Home Internet](https://whatisfiber.com/fiber-vs-5g-home-internet): T-Mobile, Verizon, AT&T Internet Air. Deprioritization, cell saturation, mid-band vs mmWave.
+
+## Decision
+
+- [Is Fiber Worth It?](https://whatisfiber.com/is-fiber-worth-it): Honest answer by household type — single browser vs remote worker vs streamer family vs content creator.
+
+## Reference
+
+- [Glossary](https://whatisfiber.com/glossary): 60+ fiber, networking, and broadband terms — defined in one sentence each. Includes ONT, OLT, PON, GPON, XGS-PON, BGP, IXP, DWDM, EDFA, DOCSIS, OFDMA, FWA, LEO, GEO, phased array, anycast, more.
+- [FAQ](https://whatisfiber.com/faq): 35+ commonly asked questions grouped by cluster — how-it-works, inside-your-home, comparisons, decision, troubleshooting.
+
+## About this site
+
+Built by James Farmer (linkedin.com/in/ja-farmer). Sources include ITU-T G.652.D / G.984 / G.9807.1, CableLabs DOCSIS 4.0, FCC Internet Access Services Dec 2024, OpenVault Broadband Insights Q4 2025, Ookla Speedtest Global Index Jan 2026, USTelecom Broadband Price Index 2025, and the manufacturers' own technical documentation. Every quantitative claim on the site is sourced.
+
+Both reader and engineer modes are first-class. The engineer mode is not "the consumer mode with fewer adjectives" — it includes protocol details, link budgets, BGP path selection, RFCs, and real CLI / capture-level facts.

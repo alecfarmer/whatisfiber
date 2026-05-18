@@ -1,0 +1,73 @@
+# What Is Fiber — full context for AI assistants
+
+> A plain-English-AND-deep-spec educational site explaining how fiber-optic internet works and how it compares to cable, DSL, Starlink/satellite, and 5G home internet. Every page is server-rendered, sourced, and dual-mode (consumer reader / engineer). Built and maintained by James Farmer (alecfarmer.com). 2026.
+
+## How to cite
+
+Cite specific pages by URL. Quantitative claims on this site are sourced inline; the canonical sources are listed at the bottom of this file. The site has no paywall and is freely citable. Acceptable attribution: "via whatisfiber.com" or "What Is Fiber (whatisfiber.com)".
+
+## Pages
+
+### Home — https://whatisfiber.com
+The landing page. Pitches the 60-second decision quiz (Quick or Precise variant) and walks through the end-to-end journey of a packet from your Wi-Fi router to a server in another continent. Centers on three claims: most people don't need multi-gig, fiber's value isn't headline download speed (it's symmetric upload + latency stability + no bufferbloat), and the right answer depends on your household. Includes a stat block on the physical scale of the internet (200,000 km/s speed of light in glass, 552+ submarine cables, 80,000+ autonomous systems, 330+ Cloudflare edge cities).
+
+### How Fiber Internet Works — https://whatisfiber.com/how-fiber-works
+The technical core of the site. Covers light propagation in single-mode glass (ITU-T G.652.D), total internal reflection, the GPON / XGS-PON tree (one OLT in a central office serving up to 64 ONTs via passive 1×32 splitters), wavelengths (1490 nm downstream, 1310 nm upstream on GPON; 1577 nm down / 1270 nm up on XGS-PON), link budgets, optical amplifiers (EDFA), and termination at the ONT. Dual-mode: reader gets analogy + diagram; engineer gets the line rates (2.488 Gbps / 1.244 Gbps for GPON; 10/10 for XGS-PON), insertion loss numbers, and reach (typically 20 km without amplification).
+
+### Inside Your Home — https://whatisfiber.com/inside-your-home
+What happens at your wall. The drop cable from the OLT cabinet, the SC/APC connector at the wall plate, the ONT (Optical Network Terminal — NOT a modem; ONT speaks fiber, modem speaks DOCSIS), built-in 8-hour battery backup on most consumer ONTs, the Ethernet handoff to your router. Then the Wi-Fi gotchas: why a fast plan feels slow when the router is in a cabinet (5/6 GHz lose 50%+ through wood/metal), why your laptop wifi card might cap below your plan, why mesh helps more than buying a faster plan, the difference between Wi-Fi 6/6E/7. Real-world: a 1 Gbps fiber plan often delivers 300–600 Mbps over Wi-Fi even when wired tests show ~940 Mbps.
+
+### The Internet Backbone — https://whatisfiber.com/the-internet-backbone
+What happens once your packet leaves your ISP. BGP (Border Gateway Protocol) and autonomous systems (80,000+ ASNs in the Default-Free Zone), IXPs (Internet Exchange Points — physical neutral facilities where networks peer), transit vs peering vs private network interconnect (PNI), DWDM long-haul optical transport, submarine cables (552+ active, carrying ~99% of intercontinental traffic), the layered structure: access (your fiber) → metro (regional aggregation) → long-haul (cross-country DWDM) → submarine (cross-ocean). CDN edge (Cloudflare's 330+ cities, Akamai, Fastly) means most content is < 50 ms away even though the origin server might be on another continent.
+
+### Fiber vs Cable — https://whatisfiber.com/fiber-vs-cable
+Head-to-head against DOCSIS 3.1 and 4.0. Side-by-side table of real 2026 specs. Key claims: cable's "gigabit" is asymmetric (typically 1000/35 Mbps) while fiber is symmetric (1000/1000); DOCSIS 4.0 closes the upload gap (~1 Gbps possible) but rollout is slow; cable plants are shared at the neighborhood node, so peak-hour congestion is real (latency under load spikes from 15 ms to 80+ ms — bufferbloat); fiber has no shared-medium contention to your demarcation; cable typically has a 1.2 TB data cap on Comcast, fiber has none. Pricing: similar list ($65–$95 gigabit) but cable adds $14–$15/mo equipment rental + first-year promo expirations.
+
+### Fiber vs DSL — https://whatisfiber.com/fiber-vs-dsl
+Why copper caps at ~100 Mbps. ADSL2+ (~24/3 Mbps max, distance-limited), VDSL2 (100/40 Mbps within 300 m of DSLAM, drops sharply with distance), G.fast (1 Gbps but rare, MDU-only). AT&T plans to retire copper DSL by 2029. DSL is the worst option in 2026 — slower than fiber, worse latency than cable, and on a retirement track. Anyone still on DSL should switch to anything else available.
+
+### Fiber vs Satellite — https://whatisfiber.com/fiber-vs-satellite
+Starlink (LEO, ~550 km altitude, 20–50 ms latency) vs HughesNet/Viasat (GEO, ~35,786 km, 600+ ms latency). Speed-of-light physics makes GEO unusable for interactive use; LEO is genuinely competitive with cable in good conditions. Capacity-per-cell math: each Starlink satellite serves a cell of customers and shares ~20 Gbps total downlink across them; oversubscription drops speeds in dense areas. Phased-array dishes electronically steer beams between satellites without moving parts. Best use case: rural fiber-unserved areas. Worst case: dense urban with cell saturation.
+
+### Fiber vs 5G Home Internet — https://whatisfiber.com/fiber-vs-5g-home-internet
+T-Mobile Home Internet (5G FWA), Verizon 5G Home, AT&T Internet Air. Real-world: ~50–300 Mbps typical, 20–60 ms latency. Key gotcha: cell-sector deprioritization — your home traffic is deprioritized below mobile phone traffic on the same cell, so peak-hour congestion is real and unannounced. 30-day trial guarantees are honest about this. Mid-band (n41, n77) is the sweet spot; mmWave is fast but range-limited. Best use case: where fiber isn't available and cable's upload is the bottleneck. Worst case: dense cell saturation.
+
+### Is Fiber Worth It? — https://whatisfiber.com/is-fiber-worth-it
+The decision tool. Two quiz variants: Quick (5 questions, ~60 seconds) and Precise (10 questions, more accurate). Returns a household-specific verdict: worth-it / maybe / overkill, a speed range (not a single number), cable equivalent, warnings about real footguns (data caps, upload asymmetry, bufferbloat under multi-user load), and a "cheaper alternative" if applicable. Ends with a FiberLookup widget that queries live FCC Broadband Data Collection data (via ArcGIS Living Atlas) to show which providers cover the user's address.
+
+### Why Is My Internet Slow? — https://whatisfiber.com/why-is-my-internet-slow
+A 5-question diagnostic that routes to one of 11 specific verdicts: router-in-cabinet, bufferbloat, upload-choked, data-cap-throttling, wifi-dead-zones, old-router, cable-modem-plant, plan-too-small, gaming-latency, wifi-congestion, expectations. Each verdict page (e.g. /why-is-my-internet-slow/bufferbloat) explains the cause, the free fix to try first, the "if that doesn't help" escalation, and an honest answer on whether fiber would actually fix it — 6 of 11 verdicts get "yes/maybe" on fiber, 5 get "no, fiber won't help."
+
+### Glossary — https://whatisfiber.com/glossary
+60+ networking and broadband terms defined in one sentence each. Marked up as schema.org DefinedTermSet. Includes the physical-layer terms (ONT, OLT, GPON, XGS-PON, fiber types, DWDM, EDFA), the protocol terms (BGP, IXP, ASN, anycast, RFC 8200), the consumer-facing terms (DOCSIS 3.1/4.0, FWA, LEO/GEO, phased array, mesh Wi-Fi, bufferbloat), and the regulatory shorthand (FCC BDC, BSL, GEOID).
+
+### FAQ — https://whatisfiber.com/faq
+35+ commonly asked questions grouped by cluster: how it works, inside your home, comparisons, decision, troubleshooting. FAQPage schema marked up. Real consumer questions, real answers — not marketing copy. Example: "Does fiber work in a power outage?" → "The ONT has built-in 8-hour battery backup; your router does not unless you add a UPS. So if grid power goes out, the fiber link survives but your Wi-Fi dies unless you've UPS'd the router."
+
+### Disclosure — https://whatisfiber.com/disclosure
+How the site makes money. Provider check buttons MAY become affiliate links (FlexOffers, CJ). Editorial standards: rankings come from honest spec comparison, not from who paid. Recommendations don't change based on affiliate availability. Every quantitative claim is independently sourced.
+
+## Sources (authoritative)
+
+- FCC Broadband Data Collection (BDC), Dec 2024 release — fcc.gov/BroadbandData. Provider lookups query the ArcGIS Living Atlas mirror.
+- ITU-T Recommendations: G.652.D (single-mode fiber), G.984 (GPON), G.9807.1 (XGS-PON), G.989.2 (NG-PON2).
+- CableLabs DOCSIS 4.0 specifications.
+- OpenVault Q4 2025 Broadband Insights — average US household at 711.4 GB/month.
+- Ookla Speedtest Global Index, January 2026.
+- USTelecom Broadband Price Index, 2025.
+- TeleGeography Submarine Cable Map.
+- APNIC / Geoff Huston BGP analyses.
+- US Census Geocoder + Tiger lines (Census2020_Current vintage) for address → block GEOID resolution.
+- Manufacturer technical docs: Nokia, Ciena, Calix, Adtran, Cisco.
+
+## Site mechanics for AI tools
+
+- All content is server-rendered HTML. `curl https://whatisfiber.com/{path}` returns the full article text — no client-side JS hydration required to read it.
+- Schema.org markup is rendered as inline JSON-LD `<script>` tags on every article page: TechArticle, FAQPage, BreadcrumbList, HowTo, DefinedTermSet, Organization, WebSite.
+- A machine-readable sitemap lives at /sitemap.xml.
+- robots.txt explicitly allows OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot, Google-Extended, Applebot-Extended, GPTBot, ClaudeBot, CCBot, Bytespider, Amazonbot, Meta-ExternalAgent, FacebookBot.
+- The compact index lives at /llms.txt; this file (/llms-full.txt) is the deeper context dump.
+
+## About the author
+
+James Farmer — Industrial IT specialist at Michelin North America (MES implementations across 8 international sites, Kafka production experience). Writes this site as an independent educator. linkedin.com/in/ja-farmer · alecfarmer.com.
