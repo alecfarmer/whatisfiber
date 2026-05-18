@@ -12,6 +12,7 @@
     "build:zip-county": "node scripts/build-zip-county-map.mjs"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
     "geist": "^1.7.0",

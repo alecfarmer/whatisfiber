@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { ModeProvider } from "@/lib/mode-context";
 import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
@@ -111,6 +112,10 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </ModeProvider>
+        {/* Vercel Analytics — no-op in dev, ships page-view + custom events
+            once deployed to Vercel. No config needed; project ID is wired
+            from the deployment automatically. */}
+        <Analytics />
       </body>
     </html>
   );
